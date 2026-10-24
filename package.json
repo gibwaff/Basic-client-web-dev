@@ -1,6 +1,7 @@
 {
   "name": "client-side-basics",
   "version": "1.0.0",
+  "type": "module",
   "description": "Лабораторные работы по курсу 'Основы веб-разработки на стороне клиента'",
   "scripts": {
     "lint": "eslint ."
