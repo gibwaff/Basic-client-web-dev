@@ -1,0 +1,15 @@
+{
+  "name": "client-side-basics",
+  "version": "1.0.0",
+  "description": "Лабораторные работы по курсу 'Основы веб-разработки на стороне клиента'",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "gibwaff",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0"
+  }
+}
