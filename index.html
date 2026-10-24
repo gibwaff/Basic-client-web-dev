@@ -87,16 +87,8 @@
       .card p {
         font-size: 0.95rem;
         color: var(--color-text-muted);
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         flex-grow: 1;
-      }
-      .card ul {
-        margin: 0 0 24px 20px;
-        color: var(--color-text-muted);
-        font-size: 0.875rem;
-      }
-      .card ul li {
-        margin-bottom: 6px;
       }
       .btn {
         display: inline-block;
@@ -118,20 +110,6 @@
       .btn--accent:hover {
         background: #d2531d;
       }
-      .git-note {
-        margin-top: 36px;
-        padding: 20px;
-        background: #f1f5f9;
-        border-radius: 10px;
-        font-size: 0.9rem;
-        color: var(--color-text-muted);
-      }
-      .git-note code {
-        background: #e2e8f0;
-        padding: 2px 6px;
-        border-radius: 4px;
-        color: #0f172a;
-      }
     </style>
   </head>
   <body>
@@ -146,48 +124,24 @@
         <article class="card">
           <div>
             <span class="card-tag">Лабораторная работа №3</span>
-            <h2>Валидация данных в форме</h2>
+            <h2>Форма регистрации</h2>
             <p>
-              Форма регистрации в модальном окне с использованием нативного элемента &lt;dialog&gt; и Constraint Validation API.
+              Сайт ветеринарной клиники с модальным окном регистрации и валидацией данных.
             </p>
-            <ul>
-              <li>Модальное окно через <code>dialog.showModal()</code></li>
-              <li>Валидация полей при <code>blur</code> через объект <code>validity</code></li>
-              <li>Кнопка удержания показа пароля (<code>pointerdown</code> / <code>pointerup</code>)</li>
-              <li>Сбор <code>FormData()</code> при отправке</li>
-              <li>Стили псевдоклассов <code>:user-valid</code>, <code>:user-invalid</code></li>
-            </ul>
           </div>
-          <a href="lab03/index.html" class="btn btn--accent">Открыть Лабораторную №3 &rarr;</a>
+          <a href="lab03/index.html" class="btn btn--accent">Открыть результат &rarr;</a>
         </article>
 
         <article class="card">
           <div>
             <span class="card-tag">Лабораторная работа №5</span>
-            <h2>Fetch API и Storage</h2>
+            <h2>Галерея и температура</h2>
             <p>
-              Асинхронное взаимодействие с сервером (GET/POST), компонент Toast-уведомлений и сохранение темы в localStorage.
+              Галерея изображений с сервером, отправка температуры в аудитории и уведомления.
             </p>
-            <ul>
-              <li>Галерея с авто-повтором запросов (retry до 3 раз)</li>
-              <li>Индикатор загрузки (Spinner) и RWD Grid сетка (4 в ряд)</li>
-              <li>POST-отправка температуры в формате JSON</li>
-              <li>Всплывающие уведомления (Toast) зеленые/красные</li>
-              <li>Переключение темы без мерцания через <code>localStorage</code></li>
-            </ul>
           </div>
-          <a href="lab05/index.html" class="btn">Открыть Лабораторную №5 &rarr;</a>
+          <a href="lab05/index.html" class="btn">Открыть результат &rarr;</a>
         </article>
-      </div>
-
-      <div class="git-note">
-        <strong>Структура Git-репозитория:</strong>
-        <p>Каждая лабораторная работа также доступна в собственной изолированной ветке в корне проекта (для хостинга Render / GitHub Pages):</p>
-        <p style="margin-top: 8px;">
-          • Ветка <code>lab3</code> — файлы Лабораторной работы №3 в корне.<br />
-          • Ветка <code>lab5</code> — файлы Лабораторной работы №5 в корне.<br />
-          • Ветка <code>main</code> — общий портал и обе лабораторные работы в каталогах <code>lab03/</code> и <code>lab05/</code>.
-        </p>
       </div>
     </div>
   </body>

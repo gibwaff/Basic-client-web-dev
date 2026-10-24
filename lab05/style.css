@@ -103,15 +103,7 @@ body {
   gap: 12px;
 }
 
-.header__badge {
-  background-color: var(--color-primary);
-  color: var(--color-primary-contrast);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 6px;
-  letter-spacing: 0.5px;
-}
+
 
 .header__title {
   font-size: 0.95rem;
@@ -208,10 +200,7 @@ body {
   line-height: 1.25;
 }
 
-.main-description {
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-}
+
 
 .card {
   background-color: var(--color-surface);
@@ -238,11 +227,7 @@ body {
   margin-bottom: 4px;
 }
 
-.section-subtitle {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  max-width: 650px;
-}
+
 
 /* ==================== Секция Галереи ==================== */
 .gallery-wrapper {
@@ -447,11 +432,7 @@ body {
   background-color: var(--color-surface-hover);
 }
 
-.field-hint {
-  font-size: 0.775rem;
-  color: var(--color-text-muted);
-  margin-top: 4px;
-}
+
 
 /* ==================== Компонент Тостов (Toasts) ==================== */
 .toast-container {

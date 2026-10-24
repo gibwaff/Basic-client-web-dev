@@ -19,7 +19,7 @@
             document.documentElement.setAttribute("data-theme", "light");
           }
         } catch {
-          // localStorage disabled fallback
+          // fallback
         }
       })();
     </script>
@@ -29,8 +29,7 @@
     <header class="header">
       <div class="header__container">
         <div class="header__brand">
-          <span class="header__badge">WEB</span>
-          <span class="header__title">Курс: Основы веб-разработки на стороне клиента</span>
+          <span class="header__title">Лабораторная работа №5</span>
         </div>
 
         <div class="header__actions">
@@ -50,23 +49,14 @@
     </header>
 
     <main class="main container">
-      <!-- Заголовок работы H1 согласно требованиям -->
       <section class="intro-section">
         <h1 class="main-title">Беляков Игорь - Лабораторная работа №5</h1>
-        <p class="main-description">
-          Тема: Использование Fetch API и Storage, работа с форматом обмена данными JSON.
-        </p>
       </section>
 
       <!-- Секция 1: Галерея -->
       <section class="card section-gallery" aria-labelledby="gallery-heading">
         <div class="section-header">
-          <div>
-            <h2 id="gallery-heading" class="section-title">Галерея изображений</h2>
-            <p class="section-subtitle">
-              Загрузка карточек через Fetch API со случайным ответом сервера и механизмом повторных попыток (до 3 раз).
-            </p>
-          </div>
+          <h2 id="gallery-heading" class="section-title">Галерея изображений</h2>
           <button
             type="button"
             class="btn btn--primary"
@@ -88,7 +78,7 @@
             hidden
           >
             <div class="spinner" aria-hidden="true"></div>
-            <p class="loader-text">Загрузка изображений из сервера...</p>
+            <p class="loader-text">Загрузка изображений...</p>
           </div>
 
           <!-- Сетка изображений -->
@@ -111,12 +101,7 @@
       <!-- Секция 2: Отправка температуры -->
       <section class="card section-temp" aria-labelledby="temp-heading">
         <div class="section-header">
-          <div>
-            <h2 id="temp-heading" class="section-title">Сведения о температуре в аудитории</h2>
-            <p class="section-subtitle">
-              Отправка данных на сервер POST-запросом в формате JSON с обработкой статуса ответа.
-            </p>
-          </div>
+          <h2 id="temp-heading" class="section-title">Сведения о температуре в аудитории</h2>
         </div>
 
         <form id="temp-form" class="form temp-form" novalidate>
@@ -134,7 +119,6 @@
                 placeholder="Например: Пр-1315"
                 autocomplete="off"
               />
-              <span class="field-hint">Строковое обозначение кабинета или класса</span>
             </div>
 
             <div class="form-group">
@@ -153,7 +137,6 @@
                 placeholder="Например: 21.5"
                 autocomplete="off"
               />
-              <span class="field-hint">Числовое значение температуры</span>
             </div>
           </div>
 

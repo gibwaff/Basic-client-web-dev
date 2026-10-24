@@ -240,36 +240,6 @@ body {
   margin-bottom: 40px;
 }
 
-.info-card {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  padding: 28px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-}
-
-.info-card__title {
-  font-size: 1.3rem;
-  margin-bottom: 16px;
-  color: var(--color-dark);
-}
-
-.info-card__list {
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--color-dark-muted);
-}
-
-.info-card__list code {
-  background-color: #eef2f6;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  color: #c92a2a;
-}
-
 /* ==================== Модальное окно (dialog) ==================== */
 .dialog {
   border: none;

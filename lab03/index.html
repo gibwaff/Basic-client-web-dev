@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Лабораторная работа №3 — Валидация данных в форме</title>
+    <title>Ветеринарная клиника Doctor Toma</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -51,9 +51,9 @@
     <main class="main">
       <section class="hero-section">
         <div class="container">
-          <h1 class="hero__title">Основы веб-разработки на стороне клиента</h1>
+          <h1 class="hero__title">Круглосуточная ветеринарная клиника Doctor Toma</h1>
           <p class="hero__subtitle">
-            Лабораторная работа №3: Валидация данных в форме с использованием Constraint Validation API и элемента &lt;dialog&gt;.
+            Широкий спектр услуг для здоровья ваших питомцев: от планового осмотра и вакцинации до сложной хирургии и стационара.
           </p>
           <div class="hero__actions">
             <button
@@ -61,20 +61,8 @@
               class="btn btn--primary"
               id="hero-register-btn"
             >
-              Открыть форму регистрации
+              Зарегистрироваться на приём
             </button>
-          </div>
-
-          <div class="info-card">
-            <h2 class="info-card__title">Требования к работе</h2>
-            <ul class="info-card__list">
-              <li>Открытие модального окна методом <code>showModal()</code> элемента <code>&lt;dialog&gt;</code>.</li>
-              <li>Закрытие окна по кнопке «Закрыть» или при клике вне области диалога.</li>
-              <li>Валидация полей (имя, email, пароль ≥ 6 символов) через <code>Constraint Validation API</code> и объект <code>validity</code> при потере фокуса (<code>blur</code>).</li>
-              <li>Удержание кнопки «Показать пароль» временно раскрывает символы (события <code>pointerdown</code> и <code>pointerup</code>).</li>
-              <li>Сбор данных формы через <code>FormData()</code> в консоль при успешной отправке.</li>
-              <li>Поддержка доступности (A11y): <code>aria-describedby</code>, <code>aria-live="polite"</code>, <code>aria-invalid</code>, семантические лейблы без звёздочек.</li>
-            </ul>
           </div>
         </div>
       </section>
