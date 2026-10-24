@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторная работа №3 — Валидация данных в форме</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__logo-wrapper">
+          <a href="#" class="header__logo logo hidden-mobile" aria-label="На главную Doctor Toma">
+            <img
+              src="assets/logo.svg"
+              alt="Doctor Toma"
+              class="logo__image"
+              width="254"
+              height="54"
+            />
+          </a>
+          <a href="#" class="header__logo logo visible-mobile" aria-label="На главную Doctor Toma">
+            <img
+              src="assets/logo-mobile.svg"
+              alt="Doctor Toma"
+              class="logo__image"
+              width="43"
+              height="34"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <div class="header__info hidden-mobile">
+          <span class="header__city">г. Москва</span>
+          <span class="header__phone">+7 (495) 678-32-22</span>
+        </div>
+
+        <nav class="header__nav" aria-label="Основная навигация">
+          <button
+            type="button"
+            class="btn btn--register"
+            id="open-register-btn"
+          >
+            Регистрация
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero-section">
+        <div class="container">
+          <h1 class="hero__title">Основы веб-разработки на стороне клиента</h1>
+          <p class="hero__subtitle">
+            Лабораторная работа №3: Валидация данных в форме с использованием Constraint Validation API и элемента &lt;dialog&gt;.
+          </p>
+          <div class="hero__actions">
+            <button
+              type="button"
+              class="btn btn--primary"
+              id="hero-register-btn"
+            >
+              Открыть форму регистрации
+            </button>
+          </div>
+
+          <div class="info-card">
+            <h2 class="info-card__title">Требования к работе</h2>
+            <ul class="info-card__list">
+              <li>Открытие модального окна методом <code>showModal()</code> элемента <code>&lt;dialog&gt;</code>.</li>
+              <li>Закрытие окна по кнопке «Закрыть» или при клике вне области диалога.</li>
+              <li>Валидация полей (имя, email, пароль ≥ 6 символов) через <code>Constraint Validation API</code> и объект <code>validity</code> при потере фокуса (<code>blur</code>).</li>
+              <li>Удержание кнопки «Показать пароль» временно раскрывает символы (события <code>pointerdown</code> и <code>pointerup</code>).</li>
+              <li>Сбор данных формы через <code>FormData()</code> в консоль при успешной отправке.</li>
+              <li>Поддержка доступности (A11y): <code>aria-describedby</code>, <code>aria-live="polite"</code>, <code>aria-invalid</code>, семантические лейблы без звёздочек.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Модальное окно регистрации -->
+    <dialog id="register-dialog" class="dialog" aria-labelledby="dialog-title">
+      <div class="dialog__content">
+        <header class="dialog__header">
+          <h2 id="dialog-title" class="dialog__title">Регистрация в сервисе</h2>
+          <button
+            type="button"
+            class="btn-close"
+            id="close-dialog-btn"
+            aria-label="Закрыть модальное окно"
+          >
+            &times;
+          </button>
+        </header>
+
+        <form id="register-form" class="form" novalidate>
+          <!-- Поле: Имя -->
+          <div class="form__group">
+            <label for="user-name" class="form__label">
+              Имя пользователя <span class="form__required-note">(обязательно для заполнения)</span>
+            </label>
+            <div class="form__control-wrapper">
+              <input
+                type="text"
+                id="user-name"
+                name="name"
+                class="form__input"
+                required
+                placeholder="Иван Иванов"
+                aria-describedby="user-name-error"
+                autocomplete="name"
+              />
+            </div>
+            <p id="user-name-error" class="form__error" aria-live="polite" hidden></p>
+          </div>
+
+          <!-- Поле: Почта -->
+          <div class="form__group">
+            <label for="user-email" class="form__label">
+              Электронная почта <span class="form__required-note">(обязательно для заполнения)</span>
+            </label>
+            <div class="form__control-wrapper">
+              <input
+                type="email"
+                id="user-email"
+                name="email"
+                class="form__input"
+                required
+                placeholder="user@example.com"
+                aria-describedby="user-email-error"
+                autocomplete="email"
+              />
+            </div>
+            <p id="user-email-error" class="form__error" aria-live="polite" hidden></p>
+          </div>
+
+          <!-- Поле: Пароль -->
+          <div class="form__group">
+            <label for="user-password" class="form__label">
+              Пароль <span class="form__required-note">(обязательно для заполнения)</span>
+            </label>
+            <div class="form__control-wrapper form__control-wrapper--password">
+              <input
+                type="password"
+                id="user-password"
+                name="password"
+                class="form__input form__input--password"
+                required
+                minlength="6"
+                placeholder="Не менее 6 символов"
+                aria-describedby="user-password-error"
+                autocomplete="new-password"
+              />
+              <button
+                type="button"
+                id="toggle-password-btn"
+                class="btn-toggle-password"
+                aria-label="Удерживайте для показа пароля"
+                title="Удерживайте для показа пароля"
+              >
+                Показать
+              </button>
+            </div>
+            <p id="user-password-error" class="form__error" aria-live="polite" hidden></p>
+          </div>
+
+          <!-- Кнопки управления в форме -->
+          <div class="form__actions">
+            <button type="submit" class="btn btn--submit">
+              Зарегистрироваться
+            </button>
+            <button
+              type="button"
+              class="btn btn--secondary"
+              id="cancel-dialog-btn"
+            >
+              Отмена
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,442 @@
+@font-face {
+  font-family: "Onest";
+  src: url("fonts/Onest-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Onest";
+  src: url("fonts/Onest-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Onest";
+  src: url("fonts/Onest-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-light: #ffffff;
+  --color-dark: #1e1e1e;
+  --color-dark-muted: #555555;
+  --color-accent: #e7632a;
+  --color-accent-hover: #d2531d;
+  --color-bg-page: #f8f9fa;
+  --color-bg-card: #ffffff;
+  --color-border: #dcdcdc;
+
+  /* Состояния валидации */
+  --color-error: #c92a2a;
+  --color-error-bg: #fff5f5;
+  --color-success: #2b8a3e;
+  --color-success-bg: #f4fbf6;
+
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --font-family-base: "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-page);
+  color: var(--color-dark);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==================== Хедер ==================== */
+.header {
+  background-color: var(--color-light);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header__container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo__image {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.header__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.875rem;
+  color: var(--color-dark-muted);
+}
+
+.header__phone {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.visible-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .visible-mobile {
+    display: block !important;
+  }
+}
+
+/* ==================== Кнопки ==================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(231, 99, 42, 0.4);
+  outline-offset: 2px;
+}
+
+.btn--register {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+}
+
+.btn--register:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  padding: 14px 28px;
+  font-size: 1.05rem;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn--submit {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  flex: 1;
+}
+
+.btn--submit:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn--secondary {
+  background-color: #f1f3f5;
+  color: var(--color-dark);
+  border-color: #dee2e6;
+}
+
+.btn--secondary:hover {
+  background-color: #e9ecef;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-dark-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn-close:hover {
+  color: var(--color-dark);
+  background-color: #f1f3f5;
+}
+
+.btn-close:focus-visible {
+  outline: 2px solid var(--color-accent);
+}
+
+/* ==================== Главная секция ==================== */
+.main {
+  flex: 1;
+  padding: 40px 0;
+}
+
+.hero-section {
+  padding: 20px 0;
+}
+
+.hero__title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-dark);
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: var(--color-dark-muted);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.hero__actions {
+  margin-bottom: 40px;
+}
+
+.info-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.info-card__title {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: var(--color-dark);
+}
+
+.info-card__list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--color-dark-muted);
+}
+
+.info-card__list code {
+  background-color: #eef2f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #c92a2a;
+}
+
+/* ==================== Модальное окно (dialog) ==================== */
+.dialog {
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  width: 92%;
+  max-width: 480px;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dialog__content {
+  padding: 32px 28px;
+}
+
+.dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dialog__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* ==================== Форма и Валидация ==================== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-dark);
+  transition: color var(--transition-fast);
+}
+
+/* Указание обязательности заполнения без звездочки */
+.form__required-note {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-dark-muted);
+}
+
+.form__control-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  outline: none;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form__input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(231, 99, 42, 0.2);
+}
+
+/* Псевдоклассы :user-valid и :user-invalid согласно заданию */
+.form__input:user-valid {
+  border-color: var(--color-success);
+  background-color: var(--color-success-bg);
+}
+
+.form__input:user-invalid {
+  border-color: var(--color-error);
+  background-color: var(--color-error-bg);
+}
+
+/* Ошибки по aria-invalid и классам от JS валидации */
+.form__group.has-error .form__label {
+  color: var(--color-error);
+}
+
+.form__group.has-error .form__input,
+.form__input[aria-invalid="true"] {
+  border-color: var(--color-error) !important;
+  background-color: var(--color-error-bg) !important;
+  box-shadow: 0 0 0 2px rgba(201, 42, 42, 0.2);
+}
+
+/* Элемент вывода ошибки с минимальной высотой в одну строку */
+.form__error {
+  min-height: 1.25rem;
+  font-size: 0.825rem;
+  color: var(--color-error);
+  margin-top: 5px;
+  line-height: 1.25;
+  transition: opacity var(--transition-fast);
+}
+
+.form__error[hidden] {
+  display: none !important;
+}
+
+/* Поле пароля и кнопка показа */
+.form__control-wrapper--password .form__input--password {
+  padding-right: 90px;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #eef2f6;
+  border: 1px solid #d0d7de;
+  color: var(--color-dark);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-toggle-password:hover {
+  background-color: #dfe5ec;
+}
+
+.btn-toggle-password:focus-visible {
+  outline: 2px solid var(--color-accent);
+}
+
+/* Кнопки действий формы */
+.form__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}

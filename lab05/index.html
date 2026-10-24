@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Беляков Игорь - Лабораторная работа №5</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Предотвращение мерцания темы (FOUC) перед рендерингом DOM -->
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("app-theme");
+          if (
+            savedTheme === "dark" ||
+            (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch {
+          // localStorage disabled fallback
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Хедер с переключателем темы -->
+    <header class="header">
+      <div class="header__container">
+        <div class="header__brand">
+          <span class="header__badge">WEB</span>
+          <span class="header__title">Курс: Основы веб-разработки на стороне клиента</span>
+        </div>
+
+        <div class="header__actions">
+          <button
+            type="button"
+            class="btn btn--theme"
+            id="theme-toggle-btn"
+            aria-label="Переключить тему оформления"
+            title="Переключить тему"
+          >
+            <span class="theme-icon theme-icon--light" aria-hidden="true">☀️</span>
+            <span class="theme-icon theme-icon--dark" aria-hidden="true">🌙</span>
+            <span class="theme-text" id="theme-status-text">Светлая тема</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main container">
+      <!-- Заголовок работы H1 согласно требованиям -->
+      <section class="intro-section">
+        <h1 class="main-title">Беляков Игорь - Лабораторная работа №5</h1>
+        <p class="main-description">
+          Тема: Использование Fetch API и Storage, работа с форматом обмена данными JSON.
+        </p>
+      </section>
+
+      <!-- Секция 1: Галерея -->
+      <section class="card section-gallery" aria-labelledby="gallery-heading">
+        <div class="section-header">
+          <div>
+            <h2 id="gallery-heading" class="section-title">Галерея изображений</h2>
+            <p class="section-subtitle">
+              Загрузка карточек через Fetch API со случайным ответом сервера и механизмом повторных попыток (до 3 раз).
+            </p>
+          </div>
+          <button
+            type="button"
+            class="btn btn--primary"
+            id="refresh-gallery-btn"
+          >
+            <span class="btn__icon" aria-hidden="true">🔄</span>
+            <span>Обновить галерею</span>
+          </button>
+        </div>
+
+        <!-- Контейнер галереи -->
+        <div class="gallery-wrapper">
+          <!-- Индикатор загрузки -->
+          <div
+            id="gallery-loader"
+            class="gallery-loader"
+            role="status"
+            aria-live="polite"
+            hidden
+          >
+            <div class="spinner" aria-hidden="true"></div>
+            <p class="loader-text">Загрузка изображений из сервера...</p>
+          </div>
+
+          <!-- Сетка изображений -->
+          <div
+            id="gallery-grid"
+            class="gallery-grid"
+            aria-live="polite"
+          ></div>
+
+          <!-- Сообщение об ошибке или пустом ответе -->
+          <div
+            id="gallery-status"
+            class="gallery-status"
+            aria-live="polite"
+            hidden
+          ></div>
+        </div>
+      </section>
+
+      <!-- Секция 2: Отправка температуры -->
+      <section class="card section-temp" aria-labelledby="temp-heading">
+        <div class="section-header">
+          <div>
+            <h2 id="temp-heading" class="section-title">Сведения о температуре в аудитории</h2>
+            <p class="section-subtitle">
+              Отправка данных на сервер POST-запросом в формате JSON с обработкой статуса ответа.
+            </p>
+          </div>
+        </div>
+
+        <form id="temp-form" class="form temp-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="temp-class" class="form-label">
+                Номер аудитории <span class="required-mark">(обязательно)</span>
+              </label>
+              <input
+                type="text"
+                id="temp-class"
+                name="class"
+                class="form-input"
+                required
+                placeholder="Например: Пр-1315"
+                autocomplete="off"
+              />
+              <span class="field-hint">Строковое обозначение кабинета или класса</span>
+            </div>
+
+            <div class="form-group">
+              <label for="temp-value" class="form-label">
+                Температура воздуха (°C) <span class="required-mark">(обязательно)</span>
+              </label>
+              <input
+                type="number"
+                id="temp-value"
+                name="temp"
+                class="form-input"
+                step="0.1"
+                min="-50"
+                max="60"
+                required
+                placeholder="Например: 21.5"
+                autocomplete="off"
+              />
+              <span class="field-hint">Числовое значение температуры</span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="submit"
+              class="btn btn--primary"
+              id="temp-submit-btn"
+            >
+              <span class="btn-text">Отправить температуру</span>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Контейнер для всплывающих уведомлений (Toast) внизу справа -->
+    <div
+      id="toast-container"
+      class="toast-container"
+      aria-label="Всплывающие уведомления"
+    ></div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
