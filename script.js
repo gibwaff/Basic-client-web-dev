@@ -207,14 +207,10 @@ registerForm.addEventListener("submit", (event) => {
     return;
   }
 
-  // Сбор данных формы через FormData()
   const formData = new FormData(registerForm);
   const data = Object.fromEntries(formData.entries());
 
-  console.log("Данные формы успешно проверены и отправлены:");
-  console.table(data);
+  console.log("Form data:", data);
 
-  // Закрываем модальное окно после успешной обработки
-  alert(`Регистрация успешна!\nИмя: ${data.name}\nEmail: ${data.email}\nДанные выведены в консоль через FormData().`);
   closeModal();
 });
