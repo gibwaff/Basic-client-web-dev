@@ -35,11 +35,8 @@ function showToast(type, message, duration = 5000) {
   toast.className = `toast toast--${type}`;
   toast.setAttribute("role", type === "error" ? "alert" : "status");
 
-  const iconText = type === "error" ? "❌" : "✅";
-
   toast.innerHTML = `
     <div class="toast__content">
-      <span class="toast__icon" aria-hidden="true">${iconText}</span>
       <span class="toast__text"></span>
     </div>
     <button type="button" class="toast__close" aria-label="Закрыть уведомление">&times;</button>
